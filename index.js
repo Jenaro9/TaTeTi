@@ -1,3 +1,7 @@
+
+
+
+
 let ejex1  = ["0","0","0"];
 let ejex2 = ["0","0","0"];
 let ejex3  = ["0","0","0"];
@@ -9,23 +13,25 @@ let diagonal2 = [];
 let vertical1;
 let vertical2;
 let vertical3;
+let drawverificator;
 
 let x=true;
 let y=0;
 
+console.log(`Ingrese 2 numeros separados por "," (Eje Y, Eje X)`)
+console.log(tateti.forEach(element => console.log(element)))
 
 
 process.stdin.on('data', data => {
     let arraystr = data.toString().split(',')
-   
+    console.log(arraystr)
+
 
     if(arraystr[1]*1 == 0){
         y=1;
     }
     
-    // console.log(data.toString().split(',')[1].replace("\r\n", '') || 'vacio')
-// console.log(arraystr)
-   
+
 
     if(arraystr.length!==2){ 
         console.log(`Ingrese 2 numeros`)
@@ -108,9 +114,15 @@ vertical3=[ejex1[2], ejex2[2], ejex3[2]]
         process.exit();
     }
             
+
+    drawverificator = (element) => element == "0";
+    
+    const isLargeNumber = (element) => element == 0;
+
+    if(ejex1.findIndex(isLargeNumber) == -1 && ejex2.findIndex(isLargeNumber) == -1 && ejex3.findIndex(isLargeNumber) == -1){
+     
+                console.log(`Empate`)
+                process.exit();
+    }
+
 })
-
-
-
-
-
